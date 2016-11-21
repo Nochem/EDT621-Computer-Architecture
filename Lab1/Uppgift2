@@ -1,0 +1,27 @@
+# if x>y then z=x else z=y
+.set noreorder
+.data
+x: .word 0x2
+y: .word 0x4
+z: .word
+.text    
+.globl start2
+.ent start2
+start2:
+lw $2, x
+nop
+lw $3, y
+nop
+sub $4, $2, $3
+bgtz $4, oneGreater
+sw $3, z
+add $5, $3, $0
+nop
+
+oneGreater: 
+sw $2, z
+add $5, $2, $0
+nop
+
+
+.end start2
