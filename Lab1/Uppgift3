@@ -1,0 +1,14 @@
+#summa =0 for i=1 to 10 begin summa=summa+2 end
+.set noreorder
+.text
+.global start3
+.ent start3
+start3:
+li $4, 0xa
+li $2, 0x1 
+li $3, 0x0
+return:
+addi $2, $2, 0x1 
+addi $3, $3, 0x2
+bne $4, $2, return
+.end start3
