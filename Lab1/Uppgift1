@@ -1,0 +1,17 @@
+# Z=(X+Y)*3 X-> ram Y->reg
+# z=$6 (X+Y) =$5 y=$4
+.set noreorder
+.data
+x: .word 0x3
+.text    
+.globl start
+.ent start
+start:
+li $4, 0x4
+lw $3, x
+nop
+add $5, $4, $3
+li $2, 0x3 
+mult $5, $2
+mflo $6
+.end start
