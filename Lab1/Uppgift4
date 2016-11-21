@@ -1,0 +1,22 @@
+#returns N!
+
+.set noreorder
+.data
+N: .word 0xa
+.text
+.global start4
+.ent start4
+start4:
+lw $4, N
+nop
+
+li $2, 0x0
+li $3, 0x1
+while:
+addi $2, $2, 0x1 
+mult $3, $2
+mflo $3
+bne $4, $2, while
+
+
+.end start4
