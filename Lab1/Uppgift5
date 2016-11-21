@@ -1,0 +1,27 @@
+.set noreorder
+.data
+x: .word 
+.text
+.global start5
+.ent start5
+lw $2, x
+nop
+and $4, $4, $0
+
+while:
+andi $3, $2 0x1
+bne $3, $0, foundOne
+srl $2
+bne $2, $0, while  
+					#Inelegant to have this two rows of code repeated
+					#But we don't know how to run code below "label:" without calling the label
+
+
+jump:
+srl $2
+bne $2, $0, while
+
+foundOne:
+addi $4, $4, 0x1
+j jump
+.end start5
