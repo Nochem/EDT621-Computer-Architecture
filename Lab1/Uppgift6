@@ -1,0 +1,45 @@
+.set noreorder
+.data
+x: .word 0xD
+y: .word 0x1
+.text
+.global start
+.ent start
+start:
+lw $2, x 
+nop
+lw $3, y
+nop
+li $6, 0x1
+# $2 and $3 are the inputs, $4 is their difference, $4 is then small, $5 is large, $2 is check, $3 modresult, $6 is always 0x1
+sub $4, $2, $3 
+bgtz $4, twoIsBig
+add $4, $2, $0
+add $5, $3, $0
+add $2, $4, $0
+j while
+
+twoIsBig:
+add $4, $3, $0
+add $5, $2, $0
+add $2, $4, $0
+j while
+
+while:
+div $4, $2
+mfhi $3
+beq $3, $0, checkLarge
+sub $2, $2, $6
+j while
+
+checkLarge:
+div $5, $2
+mfhi $3
+beq $3, $0, done
+j while
+
+
+done:
+nop
+
+.end start 
