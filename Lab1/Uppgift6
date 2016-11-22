@@ -14,6 +14,7 @@ li $6, 0x1
 # $2 and $3 are the inputs, $4 is their difference, $4 is then small, $5 is large, $2 is check, $3 modresult, $6 is always 0x1
 sub $4, $2, $3 
 bgtz $4, twoIsBig
+nop
 add $4, $2, $0
 add $5, $3, $0
 add $2, $4, $0
@@ -29,17 +30,20 @@ while:
 div $4, $2
 mfhi $3
 beq $3, $0, checkLarge
-sub $2, $2, $6     #even though $2=1 we somehow get here after check large. Not done. Causing the crash.
+nop
+sub $2, $2, $6     
 j while
-
+						#even though $2=1 we somehow get here after check large. Not done. Causing the crash.
 checkLarge:
 div $5, $2
 mfhi $3
 beq $3, $0, done
+nop
 j while
 
 
 done:
+#li $2, 0xFFFF
 nop
 
 .end start 
