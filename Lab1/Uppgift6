@@ -29,7 +29,7 @@ while:
 div $4, $2
 mfhi $3
 beq $3, $0, checkLarge
-sub $2, $2, $6
+sub $2, $2, $6     #even though $2=1 we somehow get here after check large. Not done. Causing the crash.
 j while
 
 checkLarge:
