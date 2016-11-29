@@ -1,0 +1,75 @@
+
+
+
+
+Nya försöken:
+Standardinställningar
+	SumByColRow:
+		Tid: 177145
+		D-cache hit rate: 0.76
+		I-cache hit rate: 0.53
+	SumByRowCol:
+		Tid: 175945
+		D-cache hit rate: 0.79
+		I-cache hit rate: 0.53
+Cache size = 32:
+	SumByColRow:
+		Tid: 35745
+		D-cache hit rate: 0.82
+		I-cache hit rate: 0.84
+	SumByRowCol:
+		Tid: 35745
+		D-cache hit rate: 0.84
+		I-cache hit rate: 0,84
+
+Block size = 8:
+	SumByColRow:
+		Tid: 272045
+		D-cache hit rate:0.69
+		I-cache hit rate:0.83
+	SumByRowCol:
+		Tid: 267645
+		D-cache hit rate:0.69
+		I-cache hit rate:0.83
+
+NbrOfBlocksInSets=2:
+	SumByColRow:
+		Tid:161645
+		D-cache hit rate:0.80
+		I-cache hit rate:0.57
+	SumByRowCol:
+		Tid: 1555045
+		D-cache hit rate:0.84
+		I-cache hit rate:0.56
+
+WriteBack:
+	SumByColRow:
+		Tid:168495
+		D-cache hit rate:0.76
+		I-cache hit rate:0.53
+	SumByRowCol:
+		Tid:167295
+		D-cache hit rate:0.79
+		I-cache hit rate:0.53
+
+FIFO:
+	SumByColRow:
+		Tid:177145
+		D-cache hit rate:0.76
+		I-cache hit rate:0.53
+	SumByRowCol:
+		Tid:175945
+		D-cache hit rate:0.79
+		I-cache hit rate:0.53
+
+
+Uppgift 2: 
+Utan blockeringsfaktor: 
+	Tid: 277761
+	I-cache hit rate:0.91
+	D-cache hit rate:0.44
+
+Med blockeringsfaktor:
+	Tid: 189845
+	I-cache hit rate: 0.67
+	D-cache hit rate: 0.60
