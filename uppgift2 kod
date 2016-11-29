@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <idt_entrypt.h>
+#define N 10
+#define B 4
+#define min(X,Y) (X>Y?Y:X)
+int A[N][N];
+int initMatrix (int Matrix[N][N]){
+	int i, j;
+	for (i = 0; i < N; i ++) {
+		for (j = 0; j < N; j ++) {
+			Matrix[i][j] = i*N+j;
+		} 
+	}
+	return 0; 
+}
+
+int SumOfProdByRowCol (int Matrix[N][N]){
+	int i, j, k, r, Sum = 0, Time;
+	flush_cache();
+	timer_start();
+	for (i = 0; i < N; i ++) {
+		for (j = 0; j < N; j ++) {
+			r = 0;
+			for (k = 0; k < N; k = k + 1)
+				r = r + Matrix[i][k]*Matrix[k][j];
+				Sum += r;
+		}
+	}
+		Time = timer_stop();
+		printf("SumOfProd tid: %d\n", Time);
+		return Sum;
+}
+
+int SumOfProdByRowCol_Blockfactor (int Matrix[N][N]){
+	int i, j, k, r, Sum = 0, Time;
+	int jj, kk;
+	flush_cache();
+	timer_start();
+	for (jj = 0; jj < N; jj = jj + B)
+		for (kk = 0; kk < N; kk = kk + B)
+			for (i = 0; i < N; i ++) {
+				for (j = jj; j < min(jj+B, N); j ++) {
+					r = 0;
+					for (k = kk; k < min(kk+B, N); k = k + 1)
+						r = r + Matrix[i][k]*Matrix[k][j];
+						Sum += r;
+		} 
+	}	
+	Time = timer_stop();
+	printf("SumOfProd tid: %d\n", Time);
+	return Sum; 
+}
+
+
+int main () {
+	int a;
+	initMatrix(A);
+	printf ("Cachelaboration. Del 2\n");
+	a = SumOfProdByRowCol_Blockfactor(A);
+	printf("Summan av produkterna är %d\n", a);
+}
