@@ -4,21 +4,27 @@
 .data
 N: .word 0xa
 .text
-.global start4
-.ent start4
-start4:
+.global start
+.ent start
+start:
 lw $4, N
 nop
 beq $4, $0, zero 
 nop
 li $2, 0x0
 li $3, 0x1
+j while
+nop
 
 while:
 addi $2, $2, 0x1 
 mult $3, $2
 mflo $3
-bne $4, $2, while
+bne $4, $2, 
+while
+nop
+j done
+nop
 
 zero:
 li $3, 0x1
@@ -26,4 +32,4 @@ j done
 nop
 
 done:
-.end start4
+.end start
