@@ -19,9 +19,11 @@ addi $2, $2, 0x1
 mult $3, $2
 mflo $3
 bne $4, $2, while
+
 zero:
 li $3, 0x1
 j done
 nop
+
 done:
 .end start4
