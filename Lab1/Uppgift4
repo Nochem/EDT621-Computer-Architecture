@@ -20,8 +20,7 @@ while:
 addi $2, $2, 0x1 
 mult $3, $2
 mflo $3
-bne $4, $2, 
-while
+bne $4, $2, while
 nop
 j done
 nop
