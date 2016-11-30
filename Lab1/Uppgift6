@@ -1,1 +1,11 @@
-.set noreorder.datax: .word 0xay: .word 0x4.text.global start.ent startstart:lw $2, x noplw $3, ynopli $6, 0x1# $2 and $3 are the inputs, $4 is their difference, $4 is then small, $5 is large, $2 is check, $3 modresult, $6 is always 0x1sub $4, $2, $3 bgtz $4, twoIsBignopadd $4, $2, $0add $5, $3, $0add $2, $4, $0j whiletwoIsBig:add $4, $3, $0add $5, $2, $0add $2, $4, $0j whilewhile:add $7, $4, $0div $7, $2nopmfhi $3nopbeq $3, $0, checkLargenopsub $2, $2, $6     j while     checkLarge:add $7, $5, $0div $7, $2nopmfhi $3nopbeq $3, $0, donenopj whilenopdone:li $8, 0xFFFFnop.end start
+.set noreorder
+.data
+x: .word 0xa
+y: .word 0x4
+.text
+.global start
+.ent start
+start:
+lw $2, x 
+nop
+lw $3, ynopli $6, 0x1# $2 and $3 are the inputs, $4 is their difference, $4 is then small, $5 is large, $2 is check, $3 modresult, $6 is always 0x1sub $4, $2, $3 bgtz $4, twoIsBignopadd $4, $2, $0add $5, $3, $0add $2, $4, $0j whiletwoIsBig:add $4, $3, $0add $5, $2, $0add $2, $4, $0j whilewhile:add $7, $4, $0div $7, $2nopmfhi $3nopbeq $3, $0, checkLargenopsub $2, $2, $6     j while     checkLarge:add $7, $5, $0div $7, $2nopmfhi $3nopbeq $3, $0, donenopj whilenopdone:li $8, 0xFFFFnop.end start
